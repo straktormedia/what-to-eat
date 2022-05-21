@@ -1,0 +1,656 @@
+/* GLOBAL */
+
+@font-face {
+  font-family: "Lemonizm";
+  src: url(fonts/lemonismDEMO.otf);
+}
+
+@font-face {
+  font-family: "Open-Sans";
+  src: url(fonts/OpenSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Open-Sans Light";
+  src: url(fonts/OpenSans-Light.ttf);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-size: 16px;
+  font-family: "Open-Sans", sans-serif;
+}
+
+body {
+  background: linear-gradient(45deg, #973694 0%, #364b9f 100%);
+  /* overflow-x: hidden; */
+}
+
+.hidden {
+  display: none;
+}
+
+.active {
+  background-color: white;
+}
+
+.lemonizm {
+  font-family: "Lemonizm", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.05rem;
+  color: #ee7888;
+  cursor: url("cursos.png"), auto;
+}
+
+.shadow {
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+    rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+    rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+
+.heading--1,
+.btn-choose,
+.selected-filters-text,
+.clear-filters {
+  font-family: "Open-Sans Light", sans-serif;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.1em 0.6em;
+  border-radius: 0.5em;
+  cursor: url("cursos.png"), auto;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: white;
+}
+
+/* Containers */
+.container {
+  background: linear-gradient(45deg, #973694 0%, #364b9f 100%);
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 85vh;
+  animation: entrance-fade 0.3s;
+}
+
+/* Overlay */
+#overlay {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  align-items: center;
+  justify-content: center;
+}
+
+/* MAIN SECTIONS */
+
+/* Top Bar */
+.top-bar {
+  min-height: 15vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.app-logo {
+  left: 0;
+  margin-left: 2em;
+  text-decoration: none;
+}
+
+.app-title {
+  font-size: 4rem;
+}
+
+.app-subtitle {
+  font-size: 1rem;
+  text-align: right;
+  display: block;
+}
+
+#toggle-filters {
+  width: 3vmax;
+  margin-top: 1em;
+  margin-right: 2em;
+  cursor: url("cursos.png"), auto;
+  transition: transform 300ms ease-in;
+  right: 0;
+}
+
+#toggle-filters:hover {
+  transform: rotate(90deg);
+}
+
+/* Filters Section  */
+.container-filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  /* animation: leave 0.5s;
+  animation-direction: reverse; */
+}
+
+.filter-box {
+  position: absolute;
+  top: 0;
+  margin-top: 12em;
+  padding: 1em 6em;
+  border-radius: 1em;
+  z-index: 10;
+  background-color: #973694;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  order: 0;
+  animation: entrance-fade 0.3s;
+}
+
+.filter-title {
+  font-size: 3em;
+  font-weight: 400;
+  color: white;
+}
+
+.filters {
+  background-color: #ee7888;
+  padding: 1em;
+  border-radius: 1em;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 0.5em;
+}
+
+/* Appearing as checkboxes */
+.filter-checkbox {
+  border-radius: 15px;
+  /* padding: 0.5em; */
+  margin: 0.2em;
+  border: solid 1px #603813;
+  transition: 0.3s;
+  display: flex;
+}
+
+.filter-checkbox > * {
+  color: #603813;
+  font-size: 1.5rem;
+
+  cursor: url("cursos.png"), auto;
+}
+
+/* Actual Checkboxes */
+input[type="checkbox"] {
+  display: none;
+}
+
+/* Label that looks like ".filter-checkbox" */
+input[type="checkbox"] + label {
+  padding: 0.5em;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+
+/* Active Checkbox */
+input[type="checkbox"]:checked + label {
+  background-color: white;
+  color: #2d2d2d;
+}
+
+/* Submit Filters Button */
+.btn-submit-filters {
+  font-size: 2rem;
+  font-weight: 500;
+  background-color: transparent;
+  color: #dfc141;
+  border: solid 2px #dfc141;
+  align-self: flex-end;
+  margin-top: 0.5em;
+}
+
+/* Selected Filters */
+.selected-filters-text {
+  font-size: 1.5em;
+  font-weight: 100;
+  color: white;
+}
+
+.clear-filters-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 1em;
+}
+
+.clear-filters {
+  font-size: 1.5em;
+  font-weight: 100;
+  color: #dfc141;
+  cursor: url("cursos.png"), auto;
+}
+
+.clear-filters:hover {
+  color: white;
+}
+
+/* Temporary Disabled 
+.search-box {
+  border-radius: 1em;
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+#search-title {
+  color: white;
+  font-size: 2rem;
+  padding: 0.1em;
+}
+
+.search-form {
+  background-color: #ee7888;
+  height: 3em;
+  border-radius: 1em;
+  border: none;
+}
+
+.search-form:focus {
+  background-color: white;
+  color: #603813;
+  border: solid 2px #603813;
+}
+
+*/
+
+/* Intro */
+.container-intro {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding-bottom: 6em;
+}
+
+.dialogue {
+  width: 80vmax;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: 6em;
+  padding-right: 14em;
+}
+
+.heading--1 {
+  font-weight: 100;
+  font-size: 4rem;
+  color: white;
+  padding: 0.3em 0.6em;
+}
+
+.btn-choose {
+  font-size: 5rem;
+  font-weight: 100;
+  background-color: transparent;
+  color: #dfc141;
+  border: solid 2px #dfc141;
+}
+
+.cat-full {
+  width: 15vmax;
+  order: 4;
+  position: fixed;
+  cursor: url("cursos.png"), auto;
+  /* margin-top: 10em; */
+  bottom: 0;
+  right: 0;
+}
+
+/* Info */
+.info-box {
+  align-self: flex-start;
+  position: absolute;
+  display: none;
+  flex-wrap: wrap;
+  order: 2;
+  flex-direction: column;
+  padding-top: 6em;
+  padding-left: 14em;
+  z-index: 3;
+}
+
+.info {
+  width: 40vmax;
+  min-height: 25vmax;
+  background-color: white;
+  border-radius: 1em;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+}
+
+.info-title {
+  font-size: 3rem;
+}
+
+.info-text,
+.cta {
+  color: #603813;
+  font-size: 1.5rem;
+  padding: 0.1em;
+}
+
+.btn-download {
+  align-self: flex-end;
+  font-size: 2rem;
+  font-weight: 500;
+  background-color: transparent;
+  color: #dfc141;
+  border: solid 2px #dfc141;
+  margin-top: 0.5em;
+}
+
+/* Food */
+.container-food {
+  display: none;
+  justify-content: center;
+  padding-top: 6em;
+  padding-bottom: 6em;
+}
+
+.photo-box {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  order: 2;
+  z-index: 2;
+}
+
+.food-img {
+  width: 40vmax;
+  height: 25vmax;
+  border-radius: 1em;
+}
+
+.btn-another {
+  font-size: 2rem;
+  font-weight: 500;
+  background-color: transparent;
+  color: #dfc141;
+  border: solid 2px #dfc141;
+  align-self: flex-start;
+  margin-top: 0.5em;
+}
+
+.food-info-box {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex: 0 0 40vw;
+  order: 2;
+  padding-left: 4em;
+}
+
+.food-title {
+  font-size: 3rem;
+  line-height: 3.3rem;
+  font-weight: 400;
+  color: white;
+}
+
+.btn-recipe {
+  font-size: 2rem;
+  font-weight: 500;
+  background-color: #ee7888;
+  color: #603813;
+  border: solid 2px #603813;
+  margin-top: 0.5em;
+}
+
+.recipe-box {
+  background-color: #c3c0e0;
+  border-radius: 1em;
+  margin-top: 1em;
+  padding: 1em;
+  animation: entrance-fade 0.3s;
+}
+
+.recipe {
+  font-size: 1em;
+}
+
+/* Loading */
+.container-loading {
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+  padding-bottom: 6em;
+  /* min-height: 85vh; */
+}
+
+.loading-box {
+  display: flex;
+  flex-wrap: wrap;
+  order: 2;
+  margin-top: 6em;
+}
+
+.loading {
+  min-width: 40vmax;
+  min-height: 25vmax;
+  background-color: #c3c0e0;
+  border-radius: 1em;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-gif {
+  animation: grow 1.6s ease;
+}
+
+/* ANIMATION CLASSES */
+.leave {
+  animation: leave 1s;
+  animation-delay: 1.8s;
+}
+
+/* ERRORS */
+
+.error-text {
+  color: white;
+  font-size: 2rem;
+  align-self: flex-start;
+  z-index: 10;
+  padding: 1em 0 1em 0;
+}
+
+/* CATS */
+.cat-half {
+  position: fixed;
+  width: 10vmax;
+  top: 30%;
+  right: 0;
+  transition: 3s;
+  cursor: url("cursos.png"), auto;
+  z-index: 1000;
+}
+
+.cat-half:hover {
+  transform: translateY(50%); /*  rotate(90deg); */
+}
+
+/* KEYFRAMES */
+@keyframes grow {
+  0% {
+    transform: scale(0%) rotate(0deg);
+  }
+  100% {
+    transform: scale(100%) rotate(360deg);
+  }
+}
+
+@keyframes leave {
+  0% {
+    transform: translatex(0%);
+  }
+  100% {
+    transform: translatex(-300%);
+  }
+}
+
+@keyframes entrance-fade {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* RESPONSIVE */
+
+@media only screen and (max-width: 1000px) {
+  * {
+    font-size: 8px;
+  }
+  #toggle-filters {
+    width: 5vmax;
+  }
+
+  .container {
+    background: linear-gradient(45deg, #973694 0%, #364b9f 100%);
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 85vh;
+    animation: entrance-fade 0.3s;
+  }
+
+  .btn {
+    border: solid 1px;
+  }
+
+  .btn:hover {
+    background-color: transparent;
+  }
+
+  .btn:active {
+    background-color: white;
+  }
+
+  input[type="checkbox"] + label:active {
+    background-color: white;
+    color: #dfc141;
+  }
+
+  .cat-half:active {
+    transform: translateY(50%); /*  rotate(90deg); */
+  }
+
+  .btn-another,
+  .btn-recipe,
+  .btn-download .container-intro,
+  .btn-submit-filters {
+    font-size: 3rem;
+  }
+
+  .btn-recipe {
+    background-color: #ee7888;
+    color: #603813;
+  }
+
+  .filter-checkbox > * {
+    font-size: 2rem;
+  }
+  .food-title {
+    font-size: 4rem;
+    line-height: 5rem;
+  }
+  .recipe {
+    font-size: 2rem;
+  }
+
+  .container-intro {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 6em;
+  }
+
+  .dialogue {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 6em;
+    padding-right: 0;
+  }
+
+  .heading--1 {
+    order: 1;
+    text-align: center;
+  }
+  .btn-choose {
+    margin-top: 0.5em;
+    order: 2;
+  }
+
+  .cat-full {
+    width: 20vmax;
+  }
+
+  .cat-half {
+    display: none;
+  }
+
+  .container-food {
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 2em;
+  }
+
+  .photo-box {
+    padding: 0;
+  }
+
+  .info-box {
+    align-self: center;
+    padding-left: 0em;
+  }
+
+  .food-img {
+    padding: 0;
+    min-width: 90vw;
+    min-height: 50vw;
+  }
+
+  .food-info-box {
+    padding: 0;
+    margin-top: 3em;
+    flex: 0 0 0;
+  }
+
+  .filter-checkbox,
+  input[type="checkbox"] + label {
+    border-radius: 5px;
+  }
+}

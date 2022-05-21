@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What to Eat by Straktor Media</title>
+    <link rel="stylesheet" href="draft.css" />
+  </head>
+  <body>
+    <div id="overlay" style="display: none"></div>
+    <!-- Top Bar -->
+    <header class="top-bar">
+      <a href="index.html" class="app-logo">
+        <h1 class="app-logo-heading">
+          <span class="app-title lemonizm">What to Eat</span><br />
+          <span class="app-subtitle lemonizm">by Straktor Media</span>
+        </h1>
+      </a>
+      <img src="gear.png" id="toggle-filters" />
+    </header>
+
+    <!-- Intro -->
+    <div class="container container-intro">
+      <!-- Flexbox B -->
+      <div class="dialogue">
+        <button class="btn btn-choose shadow">Choose</button>
+        <h1 class="heading--1">What are we eating today?</h1>
+      </div>
+      <div class="info-box" style="display: none">
+        <div class="info shadow">
+          <div class="info-text">
+            <h2 class="info-title">The Story...</h2>
+            <br />
+            "What to Eat" is an app I created for demonstration purposes. It is
+            made with Vanilla JavaScript. It uses a free API to get the data.
+            The graphics and skecthes were made on Adobe Illustrator, and then
+            implemented with CSS flexbox.
+            <br /><br />
+            <span class="cta">
+              Explore more of my work in my GitHub and my personal
+              website!</span
+            >
+          </div>
+        </div>
+        <a
+          class="btn btn-download shadow"
+          target="blank"
+          href="https://github.com/straktormedia"
+          >Github</a
+        >
+      </div>
+      <img src="What-to-Eat-Cat-and-body.png" class="cat-full" />
+    </div>
+
+    <!-- Food -->
+    <div class="container container-food">
+      <div class="photo-box">
+        <img src="" class="food-img shadow" />
+        <button class="btn btn-another shadow">Another</button>
+      </div>
+      <div class="food-info-box">
+        <h3 class="clear-filters-box">
+          <span class="selected-filters-text"> Selected Filters: None</span>
+          <span class="clear-filters">Clear Filters</span>
+        </h3>
+        <h2 class="food-title"></h2>
+        <div class="btn-box-food-info">
+          <button class="btn btn-recipe shadow">Recipe</button>
+        </div>
+        <div class="recipe-box hidden">
+          <p class="recipe"></p>
+        </div>
+      </div>
+      <img src="cat-half.png" class="cat-half" />
+    </div>
+
+    <!-- Filters -->
+    <div class="container-filters">
+      <div class="filter-box shadow" style="display: none">
+        <h2 class="filter-title">Filters</h2>
+        <div class="error-text hidden"></div>
+        <div class="filters shadow">
+          <div class="filter-checkbox">
+            <input type="checkbox" name="beef" id="beef" class="filter-input" />
+            <label for="beef">Beef</label>
+          </div>
+          <div class="filter-checkbox">
+            <input type="checkbox" name="lamb" id="lamb" class="filter-input" />
+            <label for="lamb">Lamb</label>
+          </div>
+          <div class="filter-checkbox">
+            <input type="checkbox" name="pork" id="pork" class="filter-input" />
+            <label for="pork">Pork</label>
+          </div>
+          <div class="filter-checkbox">
+            <input
+              type="checkbox"
+              name="chicken"
+              id="chicken"
+              class="filter-input"
+            />
+            <label for="chicken">Chicken</label>
+          </div>
+          <div class="filter-checkbox">
+            <input type="checkbox" name="fish" id="fish" class="filter-input" />
+            <label for="fish">Fish</label>
+          </div>
+          <div class="filter-checkbox">
+            <input type="checkbox" name="soup" id="soup" class="filter-input" />
+            <label for="soup">Soup</label>
+          </div>
+          <div class="filter-checkbox">
+            <input
+              type="checkbox"
+              name="pasta"
+              id="pasta"
+              class="filter-input"
+            />
+            <label for="pasta">Pasta</label>
+          </div>
+          <div class="filter-checkbox">
+            <input type="checkbox" name="rice" id="rice" class="filter-input" />
+            <label for="rice">Rice</label>
+          </div>
+          <div class="filter-checkbox">
+            <input
+              type="checkbox"
+              name="pizza"
+              id="pizza"
+              class="filter-input"
+            />
+            <label for="pizza">Pizza</label>
+          </div>
+          <div class="filter-checkbox">
+            <input type="checkbox" name="eggs" id="eggs" class="filter-input" />
+            <label for="eggs">Eggs</label>
+          </div>
+          <div class="filter-checkbox">
+            <input
+              type="checkbox"
+              name="vegetarian"
+              id="vegetarian"
+              class="filter-input"
+            />
+            <label for="vegetarian">Vegetarian</label>
+          </div>
+          <div class="filter-checkbox">
+            <input
+              type="checkbox"
+              name="vegan"
+              id="vegan"
+              class="filter-input"
+            />
+            <label for="vegan">Vegan</label>
+          </div>
+          <div class="filter-checkbox">
+            <input
+              type="checkbox"
+              name="appetizer"
+              id="appetizer"
+              class="filter-input"
+            />
+            <label for="appetizer">Appetizer</label>
+          </div>
+          <div class="filter-checkbox">
+            <input
+              type="checkbox"
+              name="dessert"
+              id="dessert"
+              class="filter-input"
+            />
+            <label for="dessert">Dessert</label>
+          </div>
+        </div>
+        <!-- <div class="search-box">
+          <label for="search" id="search-title">Search</label>
+          <input type="text" id="search" name="search" class="search-form shadow" />
+        </div> -->
+
+        <button class="btn btn-submit-filters shadow">Submit</button>
+      </div>
+    </div>
+
+    <!-- Loading -->
+    <div class="container-loading" style="display: none">
+      <div class="loading-box">
+        <div class="loading shadow">
+          <img src="question-mark.png" class="lemonizm loading-gif" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Info -->
+    <div class="container container-info" style="display: none">
+      <img src="What-to-Eat-Cat-and-body.png" class="cat-full" />
+    </div>
+
+    <script src="draft.js"></script>
+  </body>
+</html>
