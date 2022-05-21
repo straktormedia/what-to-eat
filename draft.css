@@ -40,7 +40,7 @@ body {
   font-weight: 400;
   letter-spacing: 0.05rem;
   color: #ee7888;
-  cursor: url("cursos.png"), auto;
+  cursor: url("images/cursos.png"), auto;
 }
 
 .shadow {
@@ -60,7 +60,7 @@ body {
 .btn {
   padding: 0.1em 0.6em;
   border-radius: 0.5em;
-  cursor: url("cursos.png"), auto;
+  cursor: url("images/cursos.png"), auto;
   transition: 0.3s;
   text-decoration: none;
 }
@@ -120,7 +120,7 @@ body {
   width: 3vmax;
   margin-top: 1em;
   margin-right: 2em;
-  cursor: url("cursos.png"), auto;
+  cursor: url("images/cursos.png"), auto;
   transition: transform 300ms ease-in;
   right: 0;
 }
@@ -188,7 +188,7 @@ body {
   color: #603813;
   font-size: 1.5rem;
 
-  cursor: url("cursos.png"), auto;
+  cursor: url("images/cursos.png"), auto;
 }
 
 /* Actual Checkboxes */
@@ -238,7 +238,7 @@ input[type="checkbox"]:checked + label {
   font-size: 1.5em;
   font-weight: 100;
   color: #dfc141;
-  cursor: url("cursos.png"), auto;
+  cursor: url("images/cursos.png"), auto;
 }
 
 .clear-filters:hover {
@@ -310,7 +310,7 @@ input[type="checkbox"]:checked + label {
   width: 15vmax;
   order: 4;
   position: fixed;
-  cursor: url("cursos.png"), auto;
+  cursor: url("images/cursos.png"), auto;
   /* margin-top: 10em; */
   bottom: 0;
   right: 0;
@@ -488,7 +488,7 @@ input[type="checkbox"]:checked + label {
   top: 30%;
   right: 0;
   transition: 3s;
-  cursor: url("cursos.png"), auto;
+  cursor: url("images/cursos.png"), auto;
   z-index: 1000;
 }
 

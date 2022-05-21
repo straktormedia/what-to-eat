@@ -155,7 +155,7 @@ const waitAndShow = function () {
 
 // Loading SVG
 const loadingSVG = function () {
-  foodImg.src = "loading-circle.svg";
+  foodImg.src = "svg/loading-circle.svg";
   foodTitle.textContent = "";
 };
 
