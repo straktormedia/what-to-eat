@@ -176,9 +176,6 @@ const wrongFiltersUI = function () {
   errorText.textContent = ERR_MESSAGE_FILTERS;
 };
 
-// Fetch
-const fetchURL = fetch(`${API_URL}${selectedFilters}&${API_KEY}`);
-
 // ASYNCHRONOUS
 
 //Get random food
@@ -188,7 +185,7 @@ const getRandomFoods = async function () {
 
   //Promise 1
   try {
-    response = await fetchURL;
+    response = await fetch(`${API_URL}${selectedFilters}&${API_KEY}`);
     if (response.status === 402) {
       alert(ERR_MESSAGE_LIMIT_API);
       location.reload();
