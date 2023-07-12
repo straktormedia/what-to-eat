@@ -239,6 +239,32 @@ catFull.addEventListener("click", function () {
   // catFull.style.zIndex = "3";
 });
 
+// Get Recipes API
+
+async function getRecipes(recipeType) {
+  try {
+    const response = await fetch(
+      `https://serene-cohen.185-230-187-22.plesk.page/recipes/${recipeType}`
+    );
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const data = await response.json();
+    data[0].forEach((obj) => {
+      console.log(obj.title);
+      // recipesArray.push(obj.title);
+    });
+    // recipes.textContent = recipesArray;
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+
+const buttonAPI = document.querySelector(".btn-api");
+buttonAPI.addEventListener("click", () => {
+  getRecipes("recipes-all");
+});
+
 /*
 //////////////////////////////////////
 //Get Food by Search Form

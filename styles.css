@@ -298,7 +298,8 @@ input[type="checkbox"]:checked + label {
   padding: 0.3em 0.6em;
 }
 
-.btn-choose {
+.btn-choose,
+.btn-api {
   font-size: 5rem;
   font-weight: 100;
   background-color: transparent;
